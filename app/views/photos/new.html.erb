@@ -1,0 +1,21 @@
+<% if !@photo.errors.empty? %>
+  <div class="alert alert-error">
+    <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="well">
+  <%= form_for @photo, html: { multipart: true } do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :title %>
+    <%= f.label :file %>
+    <%= f.file_field :photo %>
+    <%= f.label :album %>
+    <%= f.collection_select(:album_id, Album.all, 'id', 'title') %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+</div>

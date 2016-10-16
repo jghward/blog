@@ -31,6 +31,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'clearance', '~>1.15.1'
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'bootstrap-sass'
+gem 'mini_magick'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

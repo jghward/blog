@@ -20,6 +20,9 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
+    @photo = Photo.new
+    @photo.save
+    @photo.upload
     
     if @article.save
       redirect_to @article
