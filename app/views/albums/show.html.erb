@@ -2,6 +2,8 @@
   <%= @album.title %>
 </h1>
 
-<% @album.photos.each do |p| %>
-  <%= link_to image_tag(p.photo_url(:thumb)), photo_path(p) %><br>
-<% end %>
+<div class="thumbs">
+  <% @album.photos.each do |p| %>
+    <%= link_to image_tag(p.photo_url(:thumb)), photo_path(p) %>
+  <% end %>
+</div>

@@ -12,7 +12,9 @@
     <tr>
       <th>Name</th>
       <th>Download Link</th>
-      <th>&nbsp;</th>
+      <% if signed_in? %>
+        <th>&nbsp;</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +22,9 @@
       <tr>
         <td><%= photo.title %></td>
         <td><%= link_to "Download Photo", photo.photo_url %></td>
-        <td><%= button_to "Delete",  photo, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{photo.title}?" %></td>
+        <% if signed_in? %>
+          <td><%= button_to "Delete",  photo, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{photo.title}?" %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
