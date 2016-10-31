@@ -12,6 +12,8 @@
   <%= form_for @album, html: { multipart: true } do |f| %>
     <%= f.label :name %>
     <%= f.text_field :title %>
+    <%= f.label :collection %>
+    <%= f.collection_select(:collection_id, Collection.all, 'id', 'title') %>
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 </div>

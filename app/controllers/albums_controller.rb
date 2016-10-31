@@ -6,6 +6,7 @@ class AlbumsController < ApplicationController
 
   def show
     @album = Album.find(params[:id])
+    @collection = Collection.find(@album.collection_id)
   end
 
   def new
@@ -24,6 +25,6 @@ class AlbumsController < ApplicationController
 
 private
   def album_params
-    params.require(:album).permit(:title)
+    params.require(:album).permit(:title, :collection_id)
   end
 end

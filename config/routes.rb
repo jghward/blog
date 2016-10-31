@@ -1,9 +1,19 @@
 Rails.application.routes.draw do
 
   constraints Clearance::Constraints::SignedIn.new do
-    resources :photos
-    resources :albums do
-      resources :photos
+    resources :photos do
+      member do
+        post "make_album_cover"
+        post "make_collection_cover"
+      end
+    end
+
+    resources :albums
+
+    resources :collections do
+      resources :albums do
+        resources :photos
+      end
     end
     resources :passwords, controller: "clearance/passwords", only: [:create, :new]
 
@@ -18,15 +28,19 @@ Rails.application.routes.draw do
     resources :articles do
       resources :comments
     end
+
   end
 
   constraints Clearance::Constraints::SignedOut.new do
     resources :photos, only: [:show, :index]
-    resources :albums, only: [:show, :index] do
-      resources :photos, only: [:show, :index]
+
+    resources :collections, only: [:show, :index] do
+      resources :albums, only: [:show, :index] do
+        resources :photos, only: [:show, :index]
+      end
     end
     resources :articles, only: [:show, :index] do
-      resources :comments, only: [:create, :new]
+    resources :comments, only: [:create, :new]
     end
   end
 
@@ -37,5 +51,5 @@ Rails.application.routes.draw do
   end
   resource :session, controller: "clearance/sessions", only: [:create]
 
-  root 'welcome#index'
+  root 'collections#index'
 end

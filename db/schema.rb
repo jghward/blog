@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161022222118) do
+ActiveRecord::Schema.define(version: 20161031214347) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
     t.integer  "collection_id"
+    t.integer  "cover_photo_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -27,9 +28,10 @@ ActiveRecord::Schema.define(version: 20161022222118) do
   end
 
   create_table "collections", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.integer  "cover_photo_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -45,8 +47,9 @@ ActiveRecord::Schema.define(version: 20161022222118) do
     t.string   "title"
     t.string   "photo"
     t.integer  "album_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
     t.index ["album_id"], name: "index_photos_on_album_id"
   end
 

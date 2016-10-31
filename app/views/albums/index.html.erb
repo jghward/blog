@@ -4,9 +4,6 @@
   </div>
 <% end %>
 <br />
-<%= link_to "New Album", new_album_path, class: "btn btn-primary" %>
-<br />
-<br />
 <table class="table table-bordered table-striped">
   <thead>
     <tr>
@@ -15,6 +12,7 @@
         <th>&nbsp;</th>
       <% end %>
     </tr>
+  <div class="album">
   </thead>
   <tbody>
     <% @albums.each do |album| %>
@@ -26,5 +24,9 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+  <% if signed_in? %>
+    <%= link_to "New Album", new_album_path, class: "btn btn-primary" %>
+  <% end %>
+  </table>
+</div>
 

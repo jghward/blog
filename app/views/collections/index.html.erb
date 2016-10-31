@@ -1,0 +1,27 @@
+<% if !flash[:notice].blank? %>
+  <div class="alert alert-info">
+  <%= flash[:notice] %>
+  </div>
+<% end %>
+Photos<br />
+<h1>Photos</h1>
+  <% @collections.each do |c| -%>
+  <div class="collection">
+      <% if c.has_cover? %>
+        <% cover_url = Photo.find(c.cover_photo_id).photo.url(:collectioncover) %>
+        <%= link_to image_tag(cover_url), collection_path(c) %>
+      <% end %>
+      <h3>
+        <%= link_to c.title, collection_path(c) %>
+      </h3>
+      <% if signed_in? %>
+        <br>
+        <%= button_to "Delete", c, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{c.title}?" %>
+      <% end %>
+  </div>
+  <% end %>
+  <% if signed_in? %>
+    <%= link_to "New Collection", new_collection_path, class: "btn btn-primary" %>
+  <% end %>
+</div>
+

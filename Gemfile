@@ -31,7 +31,8 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'clearance', '~>1.15.1'
-gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+#gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
+gem 'carrierwave', '0.11'
 gem 'bootstrap-sass'
 gem 'mini_magick'
 

@@ -1,6 +1,8 @@
+<%= link_to "Photos", collections_url %> >> <%= link_to @collection.title, collection_url(@collection) %> >> <%= @album.title %>
 <h1>
   <%= @album.title %>
 </h1>
+<%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
 
 <div class="thumbs">
   <% @album.photos.each do |p| %>
