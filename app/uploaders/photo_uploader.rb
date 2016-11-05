@@ -10,6 +10,7 @@ class PhotoUploader < CarrierWave::Uploader::Base
   # storage :fog
 
   process :auto_orient
+  process :resize_to_fit => [2400, 1900]
   #process :resize_to_fit => [200, 300]
 
   # Override the directory where uploaded files will be stored.

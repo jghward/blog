@@ -4,7 +4,9 @@
   </div>
 <% end %>
 <br />
-<%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<% if signed_in? %>
+  <%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<% end %>
 <br />
 <br />
 <table class="table table-bordered table-striped">
