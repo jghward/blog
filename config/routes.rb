@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   end
 
   constraints Clearance::Constraints::SignedOut.new do
-    resources :photos, only: [:show, :index]
+    resources :photos, only: [:show]
 
     resources :collections, only: [:show, :index] do
       resources :albums, only: [:show, :index] do
