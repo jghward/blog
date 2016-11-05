@@ -16,9 +16,10 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.new(photo_params)
+    @album = Album.find(@photo.album_id)
 
     if @photo.save
-      redirect_to photos_path, notice: "The photo has been uploaded."
+      redirect_to album_path(@album), notice: "The photo has been uploaded."
     else
       render 'new'
     end
