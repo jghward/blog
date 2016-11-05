@@ -2,7 +2,9 @@
 <h1>
   <%= @album.title %>
 </h1>
-<%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<% if signed_in? %>
+  <%= link_to "New Photo", new_photo_path, class: "btn btn-primary" %>
+<% end %>
 
 <div class="thumbs">
   <% @album.photos.each do |p| %>
