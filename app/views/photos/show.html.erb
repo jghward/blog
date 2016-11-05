@@ -1,4 +1,4 @@
-<%= link_to "Photos", collections_url %> >> <%= link_to @collection.title, collection_url(@collection) %> >> <%= link_to @album.title, collection_album_url(@collection) %> >> <%= @photo.title %> (<%= link_to "Prev", photo_url(@photo.next) %>|<%= link_to "Next", photo_url(@photo.previous) %>)
+<%= link_to "Photos", collections_url %> >> <%= link_to @collection.title, collection_url(@collection) %> >> <%= link_to @album.title, collection_album_url(@collection) %> >> <%= @photo.title %> (<%= link_to "Prev", photo_url(@photo.previous) %>|<%= link_to "Next", photo_url(@photo.next) %>)
 <h1><%= @photo.title %></h1>
 <%= link_to image_tag(@photo.photo.display.url), @photo.next %>
 <% if signed_in? %>
