@@ -25,6 +25,12 @@ class PhotosController < ApplicationController
     end
   end
 
+  def destroy
+    @photo = Photo.find(params[:id])
+    @photo.destroy
+    redirect_to photos_path
+  end
+
   def make_album_cover
     @photo = Photo.find(params[:id])
     @photo.create_cover(:albumcover)
